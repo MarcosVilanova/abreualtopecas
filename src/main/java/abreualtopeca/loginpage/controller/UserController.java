@@ -15,10 +15,9 @@ import abreualtopeca.loginpage.entity.User;
 import abreualtopeca.loginpage.service.UserService;
 
 @RestController
-@RequestMapping("/bd/user") // CAMINHO DA URL PARA API
+@RequestMapping("/bd/user") 
 public class UserController {
     
-    // UserController IRA CHAMAR A UserService E A MESMA IRA CHAMAR O UserRepository PARA IMPLEMENTAR A APLICAÇÃO NO BANCO DE DADOS
     // UserController --> UserService --> UserRepository
 
     // INJECAO DE DEPENDENCIA UserService 
@@ -52,14 +51,5 @@ public class UserController {
         {
             return ResponseEntity.notFound().build();
         }
-    }
-
-    @GetMapping  // lista usuario 
-    public ResponseEntity<List<User>> listUsers()
-    {
-        var users = userService.listUsers();
-        return ResponseEntity.ok(users);
-    }
-
-    
+    }  
 }
